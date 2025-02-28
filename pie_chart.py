@@ -28,3 +28,5 @@ ax.set_xticks(np.arange(0, len(df), 1), labels = df.long_name, rotation = 90)
 
 fig.set_size_inches(8, 6)
 fig.tight_layout()   
+
+fig.savefig("fig.png", dpi = 300)

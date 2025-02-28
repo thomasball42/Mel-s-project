@@ -14,7 +14,7 @@ import shapely as sh
 import tqdm 
 
 records = ["LIVING_SPECIMEN", "OBSERVATION", "HUMAN_OBSERVATION", "OCCURANCE", "MACHINE_OBSERVATION"]
-minYear = 1850
+minYear = 2000
 
 dat_path = os.path.join("dat", "0000098-250225085111116.csv")
 vec_path = os.path.join("dat", "ne_50m_admin_0_countries", "ne_50m_admin_0_countries.shp")
@@ -23,7 +23,6 @@ df = pd.read_csv(dat_path, sep = "\t", header = 0)
 
 dff = df[(df.basisOfRecord.isin(records))&((df.year > minYear) | (df.year.isna()))]
 dff = dff[~dff.decimalLatitude.isna()]
-# dff = dff[~dff.individualCount.isna()]
 
 vc = gpd.read_file(vec_path, layer = "ne_50m_admin_0_countries")
 
